@@ -12,8 +12,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html className="overflow-x-clip" lang="en">
+      <body className="overflow-x-clip">{children}</body>
     </html>
   );
 }
