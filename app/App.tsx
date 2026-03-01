@@ -293,18 +293,10 @@ function HowItWorksSection() {
 }
 
 function ModelPipelineSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.03 });
-
   return (
-    <section ref={ref} className="py-24 px-6 bg-white">
+    <section className="py-24 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Prompt-to-Response Pipeline
           </h2>
@@ -312,14 +304,9 @@ function ModelPipelineSection() {
           <p className="text-xl text-gray-600 max-w-4xl mx-auto">
             A clear, in-depth walkthrough of how Chain of Thought models turn a question into a final answer.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.article
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-8 md:p-10 border border-blue-100 shadow-sm"
-        >
+        <article className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-8 md:p-10 border border-blue-100 shadow-sm">
           <div className="max-w-4xl mx-auto space-y-8 text-gray-700 leading-8">
             <header className="space-y-4">
               <h3 className="text-3xl font-bold text-gray-900">
@@ -495,14 +482,9 @@ function ModelPipelineSection() {
               </p>
             </section>
           </div>
-        </motion.article>
+        </article>
 
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-12 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 text-white"
-        >
+        <div className="mt-12 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 text-white">
           <h3 className="text-2xl font-bold mb-4">Key Takeaways</h3>
           <ul className="space-y-3 text-blue-100">
             <li>• Chain of Thought models work best when they break hard questions into smaller steps.</li>
@@ -510,16 +492,13 @@ function ModelPipelineSection() {
             <li>• Verification and grounding help reduce confident but incorrect answers.</li>
             <li>• Better outputs come from a well-designed process, not from one prompt alone.</li>
           </ul>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
 }
 
 function ComparisonSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
-
   const regularAI = [
     {
       feature: 'Single-pass answer tendency',
@@ -577,14 +556,9 @@ function ComparisonSection() {
   ];
 
   return (
-    <section ref={ref} className="py-24 px-6 bg-white">
+    <section className="py-24 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Regular AI vs Chain of Thought
           </h2>
@@ -593,15 +567,11 @@ function ComparisonSection() {
             Understanding the fundamental differences between traditional AI models and
             Chain of Thought approaches.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {/* Regular AI Column */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
+          <div>
             <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 h-full">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 bg-gray-300 rounded-xl flex items-center justify-center">
@@ -615,13 +585,7 @@ function ComparisonSection() {
               </p>
               <div className="space-y-4">
                 {regularAI.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                    transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                    className="flex items-start gap-3 p-4 bg-white rounded-xl"
-                  >
+                  <div key={index} className="flex items-start gap-3 p-4 bg-white rounded-xl">
                     {item.positive ? (
                       <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
                     ) : (
@@ -631,18 +595,14 @@ function ComparisonSection() {
                       <h4 className="font-semibold text-gray-900 mb-1">{item.feature}</h4>
                       <p className="text-sm text-gray-600">{item.description}</p>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* CoT AI Column */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
+          <div>
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 h-full border-2 border-blue-200">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center">
@@ -656,13 +616,7 @@ function ComparisonSection() {
               </p>
               <div className="space-y-4">
                 {cotAI.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
-                    transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                    className="flex items-start gap-3 p-4 bg-white rounded-xl"
-                  >
+                  <div key={index} className="flex items-start gap-3 p-4 bg-white rounded-xl">
                     {item.positive ? (
                       <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
                     ) : (
@@ -672,19 +626,14 @@ function ComparisonSection() {
                       <h4 className="font-semibold text-gray-900 mb-1">{item.feature}</h4>
                       <p className="text-sm text-gray-600">{item.description}</p>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-12 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 text-white"
-        >
+        <div className="mt-12 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 text-white">
           <div className="flex items-start gap-6">
             <div className="flex-shrink-0 w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center">
               <BookOpen className="w-8 h-8" />
@@ -700,16 +649,13 @@ function ComparisonSection() {
               </p>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
 }
 
 function SourcesSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
-
   const sources = [
     {
       authors: 'Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, L., & Polosukhin, I.',
@@ -804,14 +750,9 @@ function SourcesSection() {
   ];
 
   return (
-    <section ref={ref} className="py-24 px-6 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section className="py-24 px-6 bg-gradient-to-br from-gray-50 to-blue-50">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Peer-Reviewed Sources
           </h2>
@@ -820,17 +761,11 @@ function SourcesSection() {
             All information presented is derived from academic publications and peer-reviewed
             research in leading AI conferences and journals.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid gap-6">
           {sources.map((source, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow"
-            >
+            <div key={index} className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
                   <span className="text-blue-600 font-bold text-lg">{index + 1}</span>
@@ -846,16 +781,11 @@ function SourcesSection() {
                   <p className="text-blue-600 text-sm font-mono">DOI: {source.doi}</p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-12 bg-white rounded-2xl p-8 shadow-lg"
-        >
+        <div className="mt-12 bg-white rounded-2xl p-8 shadow-lg">
           <div className="flex items-start gap-4">
             <BookOpen className="w-8 h-8 text-blue-600 flex-shrink-0 mt-1" />
             <div>
@@ -869,7 +799,7 @@ function SourcesSection() {
               </p>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
